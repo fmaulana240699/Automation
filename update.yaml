@@ -5,5 +5,4 @@
       shell: |
         https://github.com/fmaulana240699/Automation.git
         cd Automation
-        kubectl create -f deployment.yaml
-        kubectl create -f services.yaml
+        kubectl apply -f deployment.yaml
