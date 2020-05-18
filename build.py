@@ -14,7 +14,7 @@ output=sshProcess.stdout
 deployment=output.read()
 print(deployment)
 
-sshProcess = subprocess.Popen(['ssh',"master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0)
+sshProcess = subprocess.Popen(['ssh',"ec2-user@master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0)
 sshProcess.stdin.write("kubectl get svc | grep -i python")
 sshProcess.stdin.close()
 
