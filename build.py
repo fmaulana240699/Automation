@@ -1,22 +1,49 @@
 import os
+import subprocess
+import sys
 
-#os.system("kubectl get pods")
+sshProcess = subprocess.Popen(['ssh',"master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0)
+sshProcess.stdin.write("git clone https://github.com/fmaulana240699/Automation.git \n")
+sshProcess.stdin.close()
 
-deploy=os.popen("kubectl get deployment | grep -i python")
-deployment= deploy.read()
+sshProcess = subprocess.Popen(['ssh',"master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0)
+sshProcess.stdin.write("kubectl get deployment | grep -i python \n")
+sshProcess.stdin.close()
 
-serv=os.popen("kubectl get svc | grep -i python ")
-services= serv.read()
+output=sshProcess.stdout
+deployment=output.read()
+print(deployment)
+
+sshProcess = subprocess.Popen(['ssh',"master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0)
+sshProcess.stdin.write("kubectl get svc | grep -i python")
+sshProcess.stdin.close()
+
+output2=sshProcess.stdout
+service=output2.read()
+print(service)
+
+
 
 if deployment == None:
-    os.system("ansible-playbook build.yaml")
-    verif=os.popen("kubectl get deployment")
-    verify=verif.read()
+    sshProcess = subprocess.Popen(['ssh',"master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0) 
+    sshProcess.stdin.write("cd Automation \n ansible-playbook build.yaml \n")
+    sshProcess.stdin.close()
 
-    if verify == None:
-        print("Build Aplikasi GAGAL")
-    else:
-       print("Build Aplikasi BERHASIL")
+    output3=sshProcess.stdout
+    hasil=output3.read()
+    print(hasil)
+
 else:
-    os.system("ansible-playbook update.yaml")
-    print("Update Aplikasi BERHASIL")
+    sshProcess = subprocess.Popen(['ssh',"master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0) 
+    sshProcess.stdin.write("cd Automation \n ansible-playbook update.yaml \n")
+    sshProcess.stdin.close()
+
+    output4=sshProcess.stdout
+    hasil2=output4.read()
+    print(hasil)
+   
+
+
+
+
+

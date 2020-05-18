@@ -1,8 +1,0 @@
-- hosts: k8s
-  user: ec2-user
-  tasks:
-    - name: Build Apps
-      shell: |
-       git clone https://github.com/fmaulana240699/Automation.git
-       cd Automation
-       python3 build.py

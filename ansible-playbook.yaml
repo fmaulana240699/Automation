@@ -1,7 +1,0 @@
-- hosts: k8s
-  user: ec2-user
-  tasks:
-    - name: nyobain
-      shell: | 
-        hostname
-        kubectl cluster-info
