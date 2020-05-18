@@ -1,8 +1,8 @@
 FROM	python
 
-RUN	pip3 install PyPI
+RUN	pip3 install PyPI && mkdir app
 
-ADD	https://github.com/fmaulana240699/socket-python/blob/master/server.py  /home/
+ADD	https://raw.githubusercontent.com/fmaulana240699/socket-python/master/server.py  app
 
 CMD	python3 /home/server.py
 
