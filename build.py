@@ -2,11 +2,11 @@ import os
 import subprocess
 import sys
 
-sshProcess = subprocess.Popen(['ssh',"master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0)
+sshProcess = subprocess.Popen(['ssh',"ec2-user@master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0)
 sshProcess.stdin.write("git clone https://github.com/fmaulana240699/Automation.git \n")
 sshProcess.stdin.close()
 
-sshProcess = subprocess.Popen(['ssh',"master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0)
+sshProcess = subprocess.Popen(['ssh',"ec2-user@master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0)
 sshProcess.stdin.write("kubectl get deployment | grep -i python \n")
 sshProcess.stdin.close()
 
@@ -25,7 +25,7 @@ print(service)
 
 
 if deployment == None:
-    sshProcess = subprocess.Popen(['ssh',"master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0) 
+    sshProcess = subprocess.Popen(['ssh',"ec2-user@master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0) 
     sshProcess.stdin.write("cd Automation \n ansible-playbook build.yaml \n")
     sshProcess.stdin.close()
 
@@ -34,7 +34,7 @@ if deployment == None:
     print(hasil)
 
 else:
-    sshProcess = subprocess.Popen(['ssh',"master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0) 
+    sshProcess = subprocess.Popen(['ssh',"ec2-user@master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0) 
     sshProcess.stdin.write("cd Automation \n ansible-playbook update.yaml \n")
     sshProcess.stdin.close()
 
