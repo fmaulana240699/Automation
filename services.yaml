@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: socket-service-py
+spec:
+  selector:
+    app: socket-fajar-python
+  type: ClusterIP
+  ports:
+    - targetPort: 2499
+      port: 2499
