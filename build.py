@@ -26,7 +26,7 @@ print(service)
 
 if deployment == None:
     sshProcess = subprocess.Popen(['ssh',"ec2-user@master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0) 
-    sshProcess.stdin.write("cd Automation \n ansible-playbook build.yaml \n")
+    sshProcess.stdin.write("ansible-playbook build.yaml \n")
     sshProcess.stdin.close()
 
     output3=sshProcess.stdout
@@ -35,7 +35,7 @@ if deployment == None:
 
 else:
     sshProcess = subprocess.Popen(['ssh',"ec2-user@master"],stdin=subprocess.PIPE,stdout = subprocess.PIPE,universal_newlines=True,bufsize=0) 
-    sshProcess.stdin.write("cd Automation \n ansible-playbook update.yaml \n")
+    sshProcess.stdin.write("ansible-playbook update.yaml \n")
     sshProcess.stdin.close()
 
     output4=sshProcess.stdout
