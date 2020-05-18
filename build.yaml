@@ -7,3 +7,5 @@
         cd Automation
         kubectl create -f deployment.yaml
         kubectl create -f services.yaml
+        cd ..
+        rm -rf Automation

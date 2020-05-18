@@ -6,3 +6,5 @@
         git clone https://github.com/fmaulana240699/Automation.git
         cd Automation
         kubectl apply -f deployment.yaml
+        cd ..
+        rm -rf Automation
