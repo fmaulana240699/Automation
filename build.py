@@ -40,7 +40,7 @@ else:
 
     output4=sshProcess.stdout
     hasil2=output4.read()
-    print(hasil)
+    print(hasil2)
    
 
 
