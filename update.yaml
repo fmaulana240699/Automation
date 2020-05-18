@@ -1,8 +1,8 @@
 - hosts: k8s
   user: ec2-user
   tasks:
-    - name: build from yaml 
+    - name: Update Apps
       shell: |
-        https://github.com/fmaulana240699/Automation.git
+        git clone https://github.com/fmaulana240699/Automation.git
         cd Automation
         kubectl apply -f deployment.yaml
