@@ -2,7 +2,6 @@
   user: ec2-user
   tasks:
     - name: Build Apps
-      shell: |
-        python3 build.py
+      shell: python3 build.py
       register: msg
-    - debug: msg
+    - debug: var=msg.stdout_lines
