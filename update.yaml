@@ -1,8 +1,0 @@
-- hosts: k8s
-  user: ec2-user
-  tasks:
-    - name: Update Apps
-      shell: |
-        kubectl apply -f deployment.yaml
-        cd ..
-        rm -rf Automation

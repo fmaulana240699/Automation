@@ -3,7 +3,6 @@
   tasks:
     - name: Build Apps
       shell: |
-        kubectl create -f deployment.yaml
-        kubectl create -f services.yaml
-        cd ..
-        rm -rf Automation
+        python3 build.py
+      register: msg
+    - debug: msg
