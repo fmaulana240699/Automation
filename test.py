@@ -1,2 +1,2 @@
 print("testing")
-print(BUILD_NUMBER)
+print($BUILD_NUMBER)
