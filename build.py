@@ -20,6 +20,6 @@ if deployment == None:
         print("Build App Berhasil")
 
 else:
-    os.system("kubectl set image deployment/socket-fajar-python socket-python-fajar=fmaulana24/socket:v$BUILD_NUMBER --record")
+    os.system("kubectl set image deployment/socket-fajar-python socket-python-fajar=fmaulana24/socket:v" + IMAGE_NUM + " --record")
     os.system("cd .. && rm -rf Automation")
     print("Update Aplikasi Berhasil")
