@@ -1,13 +1,16 @@
 - hosts: k8s
   user: ec2-user
   tasks:
+    - name: copy variable
+      copy:
+        src: variable
+        dest: /home/ec2-user/Automation
     - name: import variable
       include_vars:
         file: variable
         name: test
     - name: Build Apps
       shell: |
-         rm -rf Automation
          git clone https://github.com/fmaulana240699/Automation.git
          cd Automation
          sed -i '1 i\IMAGE_NUM: '"{{ test.BUILD_NUMBER }}" test.py
