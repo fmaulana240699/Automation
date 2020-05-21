@@ -1,0 +1,11 @@
+- hosts: k8s
+  user: ec2-user
+  tasks:
+    - name: Build Apps
+      shell: |
+         rm -rf Automation
+         git clone https://github.com/fmaulana240699/Automation.git
+         cd Automation
+         python3 test.py
+      register: msg
+    - debug: var=msg.stdout_lines
