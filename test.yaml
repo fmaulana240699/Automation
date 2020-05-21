@@ -13,7 +13,7 @@
       shell: |
          git clone https://github.com/fmaulana240699/Automation.git
          cd Automation
-         sed -i '1 i\IMAGE_NUM:'"{{ test.BUILD_NUMBER }}" test.py
+         sed -i '1 i\IMAGE_NUM='"{{ test.BUILD_NUMBER }}" test.py
          python3 test.py
       register: msg
     - debug: var=msg.stdout_lines
