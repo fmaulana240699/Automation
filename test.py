@@ -1,3 +1,4 @@
+import os
 print("testing")
 print(IMAGE_NUM)
 deploy=os.popen("echo $testing")
