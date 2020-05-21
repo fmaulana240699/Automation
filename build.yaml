@@ -1,10 +1,10 @@
 - hosts: k8s
   user: ec2-user
-  vars:
-    include_vars:
-      file: variable
-      name: test
   tasks:
+    - name: Import Variable
+      include_vars:
+        file: variable
+        name: test
     - name: Build Apps
       shell: |
          rm -rf Automation
