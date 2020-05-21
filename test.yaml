@@ -1,6 +1,6 @@
 - hosts: k8s
   user: ec2-user
-  var:
+  vars:
     IMAGE_NUM: "{{ IMAGE_NUM }}"          
   tasks:
     - name: Build Apps
