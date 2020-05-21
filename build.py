@@ -6,6 +6,8 @@ deployment= deploy.read()
 serv=os.popen("kubectl get svc | grep -i python ")
 services= serv.read()
 
+print(deployment)
+
 if deployment == 'No resources found in default namespace.':
     os.system("envsubst < deployment.yaml | kubectl create -f - && kubectl create -f services.yaml")
     os.system("cd .. && rm -rf Automation")
