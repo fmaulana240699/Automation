@@ -7,7 +7,7 @@
         dest: /home/ec2-user/variable
     - name: import variable
       include_vars:
-        file: variable
+        file: /home/ec2-user/variable
         name: test
     - name: Build Apps
       shell: |
