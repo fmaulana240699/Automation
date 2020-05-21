@@ -13,7 +13,7 @@
       shell: |
          git clone https://github.com/fmaulana240699/Automation.git
          cd Automation
-         export fmaulana=123
+         export fmaulana="{{test.BUILD_NUMBER}}"
          python3 test.py
       register: msg
     - debug: var=msg.stdout_lines
