@@ -1,11 +1,16 @@
 - hosts: k8s
   user: ec2-user
+  vars:
+    include_vars:
+      file: variable
+      name: test
   tasks:
     - name: Build Apps
       shell: |
          rm -rf Automation
          git clone https://github.com/fmaulana240699/Automation.git
          cd Automation
+         export image="{{test.BUILD_NUMBER}}"
          python3 build.py
       register: msg
     - debug: var=msg.stdout_lines
