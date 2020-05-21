@@ -4,7 +4,7 @@
     - name: copy variable
       copy:
         src: variable
-        dest: /home/ec2-user/Automation
+        dest: /home/ec2-user/variable
     - name: import variable
       include_vars:
         file: variable
